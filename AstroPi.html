@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Portfoliestyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: ivory;
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: rgb(255, 254, 242);
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+</style>
+
+<body>
+
+<div class="sidenav">
+  <a href="Hjemmeside.html">Home</a>
+  <a href="Portfolie.html">Portfolie</a>
+  <a href="AstroPi.html">Astro-Pi projekt</a>
+</div>
+    
+<div class="content">
+    
+    <h2> Astro-pi</h2>
+
+  <h3></h3>
+<ul>  
+    <li> <b>Projektbeskrivelse, hvilket videnskabeligt spørgsmål vil I godt have svar på.</b> </li>
+   <p>We would like to take a look at the air humidity levels, regarding the indoor climate. The difference between the air humidity levels on earth (Denmark specifically), and whether the International Space Station has higher, or lower  air       humidity concentrations. Furthermore, we want to analyze the effect that the heightened/lowered air humidity levels have on   the  people habitating the International Space Station.
+    <br>
+    Keeping a level of air humidity between 30%-50% is important, as it is the recommended percentage. If the levels become too high the human body cannot properly get rid of sweat. However, low humidity levels can cause dryness in the eyes as well as dangerous infections. 
+    <br>
+    The analysis would happen thus that we find the contrast between the air humidity measurements on the International Space Station, and the average air humidity levels on earth. Thereafter we will be able to see if the astronauts have a healthy indoor climate, or if changes will have to be made in order to improve the astronauts health.
+</p> 
+
+    <li> <b>Gennemgang af ESAs specifikationer og en vurdering af hvilke rammer det sætter for jeres projekt.</b> </li>
+   <p>
+        Vi ville undersøge indeklimaet i ISS, og ville ideelt have målt CO2 niveauet, men idet det ikke var en mulighed, målte vi i stedet luftfugtighed.
+    <p/>
+        
+    <li> <b>Beskrivelse af hvilke sensorer I vil bruge og hvad I vil måle med dem.</b></li>
+    <p>1. Temperatursensor <br>
+    2. Luftfugtighedssensor</p>
+   
+    <li> <b>Grundig beskrivelse af testmåling af mindst en sensor.</b></li>
+    
+    <img src="Billeder/Sencor-maaling.png" alt="målinger fra sensorerne">
+    
+    <br>
+        <a href="https://github.com/Maya0907/Hjemmeside/blob/main/test_path.csv"> Link til alt data <br></a>
+    
+    <p>Her har vi målt temperaturen og luftfugtigheden i vores klasselokale. <br>
+vi kan ud fra målingerne se at luftfugtigheden ligger på 21%, hvilket er under det anbefalede niveau. <br>
+Derudover kan vi se at den har målt temperaturen til at være omkring 36 grader. Temperaturen er så høj, da computeren er blevet varm og dermed opvarmer luften omkring sensoren. 
+</p>
+    
+    <li> <b>Gennemgang af relevante kodestumper.</b></li>
+    
+     <pre>
+  <code >
+import datetime
+from pathlib import Path
+from time import sleep
+from sense_hat import SenseHat
+sense = SenseHat()
+  </code>
+</pre>
+    
+    <p> tidszonen bliver fastslået og Sensehat bliver defineret som sense.  </p>
+    
+     <pre>
+  <code >
+start_time = datetime.datetime.now()
+now_time = datetime.datetime.now()
+duration = datetime.timedelta(seconds=180)
+  </code>
+</pre>
+    
+    <p>
+Start time: tidspunktet programmet køres <br>
+Now time: tidspunkt starter parallelt med start time, og noterer tidspunktet af hver måling <br>
+Duration: Perioden, forsøget foretages <br>
+</p>
+    
+     <pre>
+  <code >
+    dir_path = Path(__file__).parent.resolve()
+print(dir_path)
+with open (str(dir_path)+"/test_path.csv", "w") as file:
+    file.write("time , temperature , humidity \n")
+  </code>
+</pre>
+    
+    <p>
+        1. kommando til at finde lokationen af ISS <br>
+        2. Lokationen <br>
+        3. En fil åbnes, hvorefter tekst kan indsættes/skrives, her skrives “W” for at illustrere “write” <br>
+        4. Skriver de givne “ønsker”, her skrives  \n” for at illustrere “new line” <br>
+</p> 
+    
+     <pre>
+  <code >
+while now_time &lt; start_time + duration:
+    t = sense.get_temperature()
+    h = sense.get_humidity()
+    now_time= datetime.datetime.now()
+
+  </code>
+</pre>
+    
+    <p>Der defineres hvad t og p er </p>
+
+ <pre>
+  <code >
+    with open (str(dir_path)+"/test_path.csv", "a") as file:
+        file.write("%s, %s, %s  \n" % (now_time, t,h))
+    sleep(0.1)
+  </code>
+</pre>
+    
+    <p>
+1. Vi laver en fil <br>
+2. Vi fortæller hvad der skal skrives: Tiden i vores tidszone, temperaturen og luftfugtigheden <br>
+3. Programmet skal holde en pause i 0.1 sekunder
+</p>
+ <li><b>En vedhæftet fil med jeres programkode.</b></li>
+    <a href="https://github.com/Maya0907/Hjemmeside/commit/aabda9c7279734b1b196918b5a397e0b14e4e063"> Hyperlink til programkode <br></a>
+
+
+ <li><b>Vurdering af om jeres kode lever op til ESAs kravspecifikationer.</b></li>
+<p>
+    <b> 1. Must be able to run independently, it cannot rely on astronaut interaction with the Astro Pi computer. We can’t be sure when an astronaut will be available, and they have a busy work schedule. </b><br>
+<br>
+
+    <b>2. Must be a scientific experiment, for example it should not be a game.</b> <br>
+Det er videnskabeligt, idet vi undersøger forskellen mellem deres luftkvalitet og vores.<br>
+
+    <br>
+    <b>3. Should not require real-time communication with the Astro Pis on the ISS. We don’t have a radio communication module to be able to ‘give instructions’ from Earth. </b><br>
+
+<br>
+    <b>4. Should not rely on running on a specific date or time of day. We cannot predict accurately when each experiment will run. </b><br>
+Det er ikke nødvendigt, idet det er lige meget på hvilket tidspunkt vi måler luftkvaliteten.<br>
+<br>
+    <b>5. Must use the infrared camera correctly. The camera is not capable of thermal imaging. Any experiments submitted that require thermal imaging will sadly not be able to achieve flight status. </b><br>
+Vi bruger ikke det infrarøde kamera. <br>
+<br>
+    <b>6. Should not rely on a specific event happening that is unlikely to occur in the three hour period in which your experiment would run. </b> <br>
+Det er ikke nødvendigt for vores målinger.<br>
+<br>
+    <b>7. Should not rely on the ISS passing over a specific feature on Earth that is unlikely to occur in the three hour period in which your experiment would run. </b> <br>
+Det er ikke nødvendigt for målingerne.<br>  
+<br>
+    <b>8. Should not need more than 3GB of data for your results. </b>
+Vi kan godt holde vores data inden for 3GB.
+<br>
+    <b>9. Should not be a ‘Life in space’ experiment that retains images captured by the camera. </b> <br>
+Vi bruger ikke kameraet. <br>
+<br>
+    <b>10. Must not require any additional equipment or access to anything else on the ISS. </b><br>
+Det gør det heller ikke 
+    </p>
+    <br>
+ <li><b>Et Rutediagram/Flowchart af jeres programkode</b></li>
+    <img src="Billeder/Flowchart2.png" alt="Flowchart">
+    
+    </ul>
+
+</div>
+
+</body> 
+
+</html>
