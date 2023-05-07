@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 254, 242);
+  background-color: rgb(207,190,220);
 }
 
 /* overskrift h1 design */
@@ -9,6 +9,6 @@ font-size: 60px;
 }
 
 pre{
-  background-color: ivory;
+  background-color: rgb(207, 190, 220);
 }
 

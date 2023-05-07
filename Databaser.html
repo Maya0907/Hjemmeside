@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Portfoliestyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(207,190,220);
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: rgb(207,190,220);
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+</style>
+
+<body>
+
+<div class="sidenav">
+  <a href="Hjemmeside.html">Forside</a>
+  <a href="Portfolie.html">Introduktion</a>
+  <a href="AstroPi.html">Astro-Pi projekt</a>
+    <a href="Makey-makey.html">Makey makey</a>
+    <a href="Databaser.html">Databaser</a>
+</div>
+    
+<div class="content">
+
+<h2>Databaser</h2>
+<br>
+<div style="position:relative; top:0;left:0; width:100%; height:100px">
+<p style="float: right"><img src="Billeder/data.jpeg" width="500" height="600" alt="database" /></p>
+</div>
+
+<div>
+
+<h3>Hvad er en database?</h3>
+
+<p>En database er en samling af data der er organiseret på en overskuelig måde, så det er nemt at tilgå den enkelte data.</p>
+<br>
+<h5>Eksempel</h5>
+
+<p>Et eksempel kan være en dyrelæge der har en database over diverse ejere (kunder), deres dyr og deres telefonnummer.</p>
+
+<p>På denne måde er det let for dyrelægen at slå et telefonnummer op på en ejere til f.eks. katten Bo. </p>
+
+    
+    </div>   
+    
+     
+     
+<ul> 
+<div style="position:absolute;top:750px;left:300px;">
+<h4 class="sort">I skal lave en html brugerflade hvor der er overvejt brugervenligheden<br />Se teorien her interaktionsdesign.</h4>
+
+<p>Vi har valgt at lave en quiz, hvor der er 17 'fun-facts' om adskillige dyr (alle spørgsmål og svar kan findes i nedenstående tabel). <br> HTML brugerfladen er simpel og brugervenlig, idet der kun er en “ny”- og "svar”-knap, der hhv. giver et nyt spørgsmål og svaret tilhørende det givne spørgsmål. 
+</p>
+ 
+
+    
+<img src="Billeder/sp%C3%B8rgsm%C3%A5l.png" width="900" height="400" alt="spørgsmål">
+<p>⬆︎Billede af spørgsmålene i vores quiz</p>
+    
+<img src="Billeder/Svar.png" width="1100" height="300" alt="svar">     
+<p>⬆︎Billede af svar og billederne tilhørende spørgsmålene.</p>
+
+<h4 class="sort">Jeres data skal organiseres i en simpel database, regneark, som kan importeres som csv fil med javascript.</h4>
+
+<p>På de to billeder ovenfor er al dataen organiseret i en simpel database (altså et regneark). der blev importeret som en csv således at den kunne anvendes i programmet.</p>
+
+<p>Der refereres her til Java Scripten, med kommandoen "script". HTML-elementet "script" anvendes til at indlejre en eksekverbar kode: <br> “var” angiver de globale variable, og “let” er de variable, der ikke er globale. </p>
+
+<img src="Billeder/var.png" width="400" height="260" alt="var-kode">  
+
+
+<h4>Der skal redegøres for hvordan databasen kan normaliseres ved at gøre den til en relationel database. <br> Redegør herunder for relations graden. Det er ikke nødvendigt at lave selve relationsdatabasen.</h4>
+
+<p>Eftersom vores database allerede er en relationel database, vil vi i stedet redegøre for hvorfor det er en relationel database og hvad det vil sige at den er normaliseret. <br>
+For at en database kan blive kaldt for en relationel database skal den opfylde to ting; <br> <br>
+ - Der må ikke indgå den sammen data to gange i tabellen <br> <br>
+ - De to (eller flere) tabeller skal være forbundet med hinanden. <br> <br>
+Vi har opstillet vores databaser så vi har 4 kolonner der er navngivet; ID, overskrift, svar og billede, som ses øverst på billedet.
+</p>
+
+<img src="Billeder/database.png" width="500" height="300" alt="vores database">
+
+<p>Man kan se på billedet at dataen ikke indgår i tabellen mere end én gang og at de 4 datatyper vi har (spørgsmål/overskrift, svar og billede) alle er forbundet. 
+<br>
+Vi kan yderligere tillade os at sige at vores data er normaliseret da det opfylder alle 5 krav;
+</p>
+
+<p>1. Unik primærnøgle. <br>
+2. Ingen kolonne må være afhængig af andre kolonner end primærnøglen.<br>
+3. Der må kun være én datatype i hver kolonne. <br>
+4. Det samme data skal kun forekomme et sted - det modsatte kaldes redundans.<br>
+5. Data skal være relateret til hinanden.
+</p>    
+    </div>
+
+    
+    </ul>
