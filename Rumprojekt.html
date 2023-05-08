@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Portfoliestyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(207,190,220);
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: rgb(207, 190, 220);
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+</style>
+
+<body>
+
+<div class="sidenav">
+  <a href="Hjemmeside.html">Forside</a>
+  <a href="Portfolie.html">Introduktion</a>
+  <a href="AstroPi.html">Astro-Pi projekt</a>
+    <a href="Makey-makey.html">Makey makey</a>
+    <a href="Databaser.html">Databaser</a>
+</div>
+    
+<div class="content">
+
+<img src="Billeder/astopi.png" height="650" width="650" style="float: right">    
+<h2> Astro-pi - dybdegående gennemgang af projekt</h2>
+    
+
+<div>
+    <li> <b>Gennemgang af ESAs specifikationer og en vurdering af hvilke rammer det sætter for jeres projekt.</b> </li>
+   <p>
+        Vi ville undersøge indeklimaet i ISS, og ville ideelt have målt CO2 niveauet, men idet det ikke var en mulighed, målte vi i stedet luftfugtighed.
+    <p/>
+
+    </div>
+
+    <li> <b>Beskrivelse af hvilke sensorer I vil bruge og hvad I vil måle med dem.</b></li>
+    <p>1. Temperatursensor <br>
+    2. Luftfugtighedssensor</p>
+   
+    <li> <b>Grundig beskrivelse af testmåling af mindst en sensor.</b></li>
+    
+    <img src="Billeder/sensor-maaling2.png" alt="målinger fra sensorerne">
+    
+    <br>
+        <a href="https://github.com/Maya0907/Hjemmeside/blob/main/test_path.csv"> Link til alt data <br></a>
+    
+    <p>Her har vi målt temperaturen og luftfugtigheden i vores klasselokale. <br>
+vi kan ud fra målingerne se at luftfugtigheden ligger på 21%, hvilket er under det anbefalede niveau. <br>
+Derudover kan vi se at den har målt temperaturen til at være omkring 36 grader. Temperaturen er så høj, da computeren er blevet varm og dermed opvarmer luften omkring sensoren. 
+</p>
+    
+<a href="AstroPi.html">Tilbage</a>
+
+<br> <br>
+    </div>
+    </body>
+</html>

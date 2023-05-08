@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Portfoliestyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the side navigation */
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(207,190,220);
+  overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+.sidenav a {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+  background-color: rgb(207, 190, 220);
+  color: black;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+</style>
+
+<body>
+
+<div class="sidenav">
+  <a href="Hjemmeside.html">Forside</a>
+  <a href="Portfolie.html">Introduktion</a>
+  <a href="AstroPi.html">Astro-Pi projekt</a>
+    <a href="Makey-makey.html">Makey makey</a>
+    <a href="Databaser.html">Databaser</a>
+</div>
+    
+<div class="content">
+
+<img src="Billeder/astopi.png" height="650" width="650" style="float: right">    
+    
+<h2> Astro-pi</h2>
+    
+
+     <pre>
+  <code >
+import datetime
+from pathlib import Path
+from time import sleep
+from sense_hat import SenseHat
+sense = SenseHat()
+  </code>
+</pre>
+    
+    <p> tidszonen bliver fastslået og Sensehat bliver defineret som sense.  </p>
+    
+     <pre>
+  <code >
+start_time = datetime.datetime.now()
+now_time = datetime.datetime.now()
+duration = datetime.timedelta(seconds=180)
+  </code>
+</pre>
+    
+    <p>
+Start time: tidspunktet programmet køres <br>
+Now time: tidspunkt starter parallelt med start time, og noterer tidspunktet af hver måling <br>
+Duration: Perioden, forsøget foretages <br>
+</p>
+    
+     <pre>
+  <code >
+    dir_path = Path(__file__).parent.resolve()
+print(dir_path)
+with open (str(dir_path)+"/test_path.csv", "w") as file:
+    file.write("time , temperature , humidity \n")
+  </code>
+</pre>
+    
+    <p>
+        1. kommando til at finde lokationen af ISS <br>
+        2. Lokationen <br>
+        3. En fil åbnes, hvorefter tekst kan indsættes/skrives, her skrives “W” for at illustrere “write” <br>
+        4. Skriver de givne “ønsker”, her skrives  \n” for at illustrere “new line” <br>
+</p> 
+    
+     <pre>
+  <code >
+while now_time &lt; start_time + duration:
+    t = sense.get_temperature()
+    h = sense.get_humidity()
+    now_time= datetime.datetime.now()
+
+  </code>
+</pre>
+    
+    <p>Der defineres hvad t og p er </p>
+
+ <pre>
+  <code >
+    with open (str(dir_path)+"/test_path.csv", "a") as file:
+        file.write("%s, %s, %s  \n" % (now_time, t,h))
+    sleep(0.1)
+  </code>
+</pre>
+    
+    <p>
+1. Vi laver en fil <br>
+2. Vi fortæller hvad der skal skrives: Tiden i vores tidszone, temperaturen og luftfugtigheden <br>
+3. Programmet skal holde en pause i 0.1 sekunder
+</p>
+
+<a href="AstroPi.html">Tilbage</a>
+
+<br>
+    </div>/
+    </body>
+</html>
