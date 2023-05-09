@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="Portfoliestyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<div class="sidenav">
+  <a href="Hjemmeside.html">Forside</a>
+  <a href="Portfolie.html">Introduktion</a>
+  <a href="AstroPi.html">Astro-Pi projekt</a>
+    <a href="Makey-makey.html">Makey makey</a>
+    <a href="Databaser.html">Databaser</a>
+</div>
+    
+<div class="content">
+
+<h2>Databaser</h2>
+<br>
+
+<h4>Der skal redegøres for hvordan databasen kan normaliseres ved at gøre den til en relationel database. <br> Redegør herunder for relations graden. Det er ikke nødvendigt at lave selve relationsdatabasen.</h4>
+
+<p>Eftersom vores database allerede er en relationel database, vil vi i stedet redegøre for hvorfor det er en relationel database og hvad det vil sige at den er normaliseret. <br>
+For at en database kan blive kaldt for en relationel database skal den opfylde to ting; <br> <br>
+ - Der må ikke indgå den sammen data to gange i tabellen <br> <br>
+ - De to (eller flere) tabeller skal være forbundet med hinanden. <br> <br>
+Vi har opstillet vores databaser så vi har 4 kolonner der er navngivet; ID, overskrift, svar og billede, som ses øverst på billedet.
+</p>
+
+<img src="Billeder/database.png" width="500" height="300" alt="vores database">
+
+<p>Man kan se på billedet at dataen ikke indgår i tabellen mere end én gang og at de 4 datatyper vi har (spørgsmål/overskrift, svar og billede) alle er forbundet. 
+<br>
+Vi kan yderligere tillade os at sige at vores data er normaliseret da det opfylder alle 5 krav;
+</p>
+
+<p>1. Unik primærnøgle. <br>
+2. Ingen kolonne må være afhængig af andre kolonner end primærnøglen.<br>
+3. Der må kun være én datatype i hver kolonne. <br>
+4. Det samme data skal kun forekomme et sted - det modsatte kaldes redundans.<br>
+5. Data skal være relateret til hinanden.
+</p>    
+<br> <br>
+
+<a href="Databaser.html">Tilbage</a>      
+    
