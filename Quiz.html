@@ -39,9 +39,9 @@ function ny() {
   x = Math.floor(Math.random()*17+1)
   console.log(x);
   genererTekst(x);
-  pic ="Quiz/"=+billed
+  pic="Quiz/"+billed
   document.getElementById('overskrift').innerHTML = overskrift;
-  document.getElementById('myImage').src = pic;
+  document.getElementById('myImage').src =pic;
   document.getElementById('svar').innerHTML = " ";
 }
  
@@ -62,7 +62,7 @@ function genererTekst(x){
 }
 window.onload = function() {
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "Quiz.csv.js", true);
+xhr.open("GET", "Quiz.csv", true);
 xhr.responseType = "text";
 xhr.onload = function() {
   data = Papa.parse(xhr.responseText, {
